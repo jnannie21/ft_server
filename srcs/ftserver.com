@@ -14,12 +14,12 @@ server
 server
 {
 	listen	80;
-	listen	443	ssl;	# использовать шифрование для этого порта
+	listen	443	ssl;
 	root	/var/www/ftserver.com;
 	index	index.php index.html index.htm;
 	server_name		ftserver.com www.ftserver.com;
-	ssl_certificate /etc/ssl/certs/ftserver.com_nginx.crt;      # сертификат (можно свободно распространять)
-	ssl_certificate_key /etc/ssl/private/ftserver.com_nginx.key;    # приватный ключ (секретный файл - НИКОМУ НЕ ПОКАЗЫВАТЬ)
+	ssl_certificate /etc/ssl/certs/ftserver.com_nginx.crt;
+	ssl_certificate_key /etc/ssl/private/ftserver.com_nginx.key;
 
 location ~ \.php$
 {
