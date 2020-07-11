@@ -34,6 +34,6 @@ location ~ \.php$
 
 location ~
 {
-    autoindex   on;
+    autoindex	on;
 }
 }

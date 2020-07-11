@@ -31,12 +31,15 @@ rm /etc/nginx/sites-enabled/default;
 # wp
 RUN curl -fsSL -o /tmp/wordpress.tar.gz https://wordpress.org/latest.tar.gz; \
 tar -xf /tmp/wordpress.tar.gz --strip-components=1 --directory=/var/www/ftserver.com/; \
-rm /tmp/wordpress.tar.gz; \
-mkdir /var/www/ftserver.com/f;
+rm /tmp/wordpress.tar.gz;
+# test folder
+RUN mkdir /var/www/ftserver.com/f;
 COPY srcs/wp-config-sample.php /var/www/ftserver.com/wp-config.php
 #COPY srcs/index.php /var/www/ftserver.com/
 RUN chown -R www-data /var/www/*; \
 chmod -R 755 /var/www/*;
+ENV AUTOINDEX="on"
 EXPOSE 80
 EXPOSE 443
+#CMD ["/bin/sh", "/tmp/start.sh"]
 CMD /tmp/start.sh
