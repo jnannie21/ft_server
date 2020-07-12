@@ -1,7 +1,7 @@
 FROM debian:buster
 RUN apt-get -y update; \
 apt-get -y install nginx; \
-apt-get -y install php-fpm php-cli php-mysql; \
+apt-get -y install php php-fpm php-cli php-mysql; \
 apt-get -y install mariadb-server; \
 apt-get -y install curl;
 

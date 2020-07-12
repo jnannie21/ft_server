@@ -26,9 +26,6 @@ $i = 0;
  * First server
  */
 $i++;
-//$cfg['Servers'][$i]['user']          = 'root';
-//$cfg['Servers'][$i]['password']      = 'password'; // use here your password
-//$cfg['Servers'][$i]['auth_type']     = 'config';
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
