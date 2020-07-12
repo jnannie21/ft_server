@@ -1,8 +1,8 @@
-upstream php-fpm
-{
-	# PHP5-FPM сервер
-	server unix:/var/run/php/php7.3-fpm.sock;
-}
+#upstream php-fpm
+#{
+	# PHP7.3-FPM сервер
+#	server unix:/var/run/php/php7.3-fpm.sock;
+#}
 
 server
 {
@@ -21,18 +21,18 @@ server
 	ssl_certificate /etc/ssl/certs/ftserver.com_nginx.crt;
 	ssl_certificate_key /etc/ssl/private/ftserver.com_nginx.key;
 
-location ~ \.php$
+location ~\.php$
 {
 	try_files	$uri $uri/ =404;
-	fastcgi_pass php-fpm;
+	fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+	#fastcgi_pass php-fpm;
 	include fastcgi_params;
 	fastcgi_param	SCRIPT_FILENAME		/var/www/ftserver.com/$fastcgi_script_name;
 	fastcgi_param	PATH_TRANSLATED		/var/www/ftserver.com/$fastcgi_script_name;
 	fastcgi_index	index.php;
-	#fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
 }
 
-location ~
+location "/"
 {
     autoindex	on;
 }
