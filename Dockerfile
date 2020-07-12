@@ -41,6 +41,8 @@ RUN chmod -R 755 /var/www/;
 
 # script to start services
 COPY srcs/start.sh /tmp/
+RUN chmod 755 /tmp/start.sh
+
 ENV AUTOINDEX="on"
 EXPOSE 80
 EXPOSE 443
